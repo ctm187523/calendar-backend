@@ -38,7 +38,7 @@ app.use( express.static('public')); //indicamos la carpeta public qeu contien el
 // Lectura y parseo del body, pasamos las peticiones por otro middleware, decimos que las peticiones que vengan en formato Json
 app.use ( express.json() );
 
-// Rutas
+// RUTAS
 
 // Authentication, crear, login, renovacion del token
 //usamos de nuevo un middleware ponemos la ruta donde queremos habilitar este endpoint, aqui esta todo lo relacionado a la autenticacion
@@ -47,6 +47,7 @@ app.use ( express.json() );
 app.use('/api/auth', require('./routes/auth') );
 
 //CRUD(Create, Read, Update, Delete) de los eventos del calendario
+app.use('/api/events', require('./routes/events') );
 
 
 

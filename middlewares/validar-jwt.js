@@ -17,11 +17,12 @@ const validarJWT = (req, res= response, next) => { //next es la funcion que voy 
     try {
 
         //pide el token obtenido y la variable de entorno con la contraseña creada y anteriormente incluida en la creacion del token helpers/jwt.js
+        //para poder validar el Token 
         //obtenemos el payload del token
         const payload = jwt.verify(
 
             token,
-            process.env.SECRET_JWT_SEED
+            process.env.SECRET_JWT_SEED //hace de firma
         );
 
         //extraemos del payload del token el uid y el name y lo ponemos en la request
@@ -33,7 +34,7 @@ const validarJWT = (req, res= response, next) => { //next es la funcion que voy 
         
     } catch (error) {
         //si la validacion del Token falla
-        return res.status(401).jason({
+        return res.status(401).json({
             ok:false,
             msg: 'Token no valido'
         })

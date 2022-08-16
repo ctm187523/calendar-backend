@@ -56,5 +56,5 @@ router.post(
 //como tercer parametro usamos la funcion del archivo controllers/auth importada en linea 19
 router.get('/renew', validarJWT, revaliarToken); 
 
-//exportamos 
+//exportamos el router
 module.exports = router;
