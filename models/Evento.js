@@ -27,4 +27,15 @@ const EventoSchema = Schema({
 
 });
 
+//con este codigo tenemos acceso a los propeidades(campos) guardadas en el base de datos de Mongo,importamos EventoSchema
+EventoSchema.method('toJSON', function() {
+    //extraemos la version(__v y el _id lo demas lo dejamos alamcenado en  ..object)
+    //modificamos el _id por id y la __v al no mencionarla abajo en la transformacion desaparece del JSON
+    const { __v, _id, ...object } = this.toObject();
+
+    //remplazamos el _id por id, estas modificaciones no se ejecutan direcatamente en la base de datos solo en el Json
+    object.id = _id;
+    return object;
+})
+
 module.exports = model('Evento', EventoSchema);
