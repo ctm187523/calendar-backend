@@ -24,7 +24,7 @@ const {  validarJWT } = require('../middlewares/validar-jwt');
 
 //CREAMOS LOS ENDPOINTS
 //usamos la funcion post del router con sus parametros req(request) y res(response)
-
+//para crear nuevo usuario
 router.post(
     '/new',
     //middlewares para validaciones de express-validator, usamos el check ver arriba
@@ -38,6 +38,7 @@ router.post(
 ); 
 
 //usamos la funcion post del router con sus parametros req(request) y res(response)
+//para el login
 router.post(
     '/',
     //middlewares para validaciones de express-validator, usamos el check ver arriba
@@ -54,6 +55,7 @@ router.post(
 //como segundo parametro ponemos la funcion validarJwt importada arriba del fichero middlewares/validar-jwt.js
 //donde recibimos el token 
 //como tercer parametro usamos la funcion del archivo controllers/auth importada en linea 19
+//para renovar el toquen
 router.get('/renew', validarJWT, revaliarToken); 
 
 //exportamos el router

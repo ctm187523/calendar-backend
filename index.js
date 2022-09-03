@@ -1,6 +1,6 @@
 //HEMOS INSTALADO EXPRES COMO SERVIDOR VER VIDEO 366 y 367
 
-//importamos las variables de entorno para ello hemos isntalado en la consola
+//importamos las variables de entorno para ello hemos instalado en la consola
 // --> npm i dotenv
 require('dotenv').config();
 

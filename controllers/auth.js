@@ -114,11 +114,15 @@ const revaliarToken = async(req, res = response) => {
     const uid = req.uid;
     const name = req.name;
 
-    //generamos un nuevo JWT y lo retornamos en esta peticion usando la funcion generarJWT de herpers/jwt.js
+    
+
+    //generamos un nuevo JWT y lo retornamos en esta peticion usando la funcion generarJWT de helpers/jwt.js
     const token = await generarJWT(uid, name);
 
     res.json({
         ok: true,
+        uid,
+        name,
         token //retornamos el nuevo JWT
     });
 }
