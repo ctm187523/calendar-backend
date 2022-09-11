@@ -50,6 +50,11 @@ app.use('/api/auth', require('./routes/auth') );
 app.use('/api/events', require('./routes/events') );
 
 
+//endopint usado si no tenemos ninguna de las rutas de arriba ver video 428
+app.get('*', ( req, res) => {
+    res.sendFile(__dirname + '/public/index.html');
+})
+
 
 //Escuchar peticiones, ponemos el puerto que queramos que corra y un callback
 //que informa donde esta corriendo la aplicacion, usamos la variable de entorno
